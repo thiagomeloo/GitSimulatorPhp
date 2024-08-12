@@ -1,0 +1,18 @@
+{
+    "name": "thiagomeloo/git-simulator-php",
+    "autoload": {
+        "psr-4": {
+            "Thiagomeloo\\GitSimulatorPhp\\": "src"
+        }
+    },
+    "bin": [
+        "bin/git-simulator-php"
+    ],
+    "authors": [
+        {
+            "name": "Thiago Melo",
+            "email": "4thiagomelo5@gmail.com"
+        }
+    ],
+    "require": {}
+}
