@@ -110,6 +110,10 @@ class GitSimulatorPhp
             self::executeCommand(
                 CommitCommands::COMMIT->get("$prefixId-$branchId: Remove $firstFile")
             );
+
+            self::executeCommand(
+                BranchCommands::BRANCH_PUSH->get($branchName)
+            );
         }
 
         self::info("Returning to branch $this->branchName");
@@ -117,14 +121,6 @@ class GitSimulatorPhp
             BranchCommands::BRANCH_CHECKOUT->get($this->branchName)
         );
 
-        self::info("Merging branch $branchName");
-        self::executeCommand(
-            BranchCommands::BRANCH_MERGE->get($branchName)
-        );
-
         self::success("Successfully!");
-
     }
-
-
 }
