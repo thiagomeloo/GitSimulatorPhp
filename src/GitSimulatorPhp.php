@@ -74,6 +74,10 @@ class GitSimulatorPhp
         $branchName = "$typeTask/$prefixId-$branchId";
 
         self::executeCommand(
+            BranchCommands::BRANCH_PULL->get($this->branchName)
+        );
+
+        self::executeCommand(
             BranchCommands::BRANCH_CHECKOUT_CREATE->get($branchName)
         );
 

@@ -12,6 +12,7 @@ enum BranchCommands: string
     case BRANCH_LIST = "git branch";
     case BRANCH_MERGE = "git merge %s";
     case BRANCH_PUSH = "git push origin %s";
+    case BRANCH_PULL = "git pull origin %s";
 
 
     public function get(?string $name = null): string
