@@ -39,6 +39,10 @@ class GitSimulatorPhp
             echo "Type task: $typeTask\n";
         }
 
+        self::executeCommand(
+            BranchCommands::BRANCH_PULL->get($this->branchName)
+        );
+
         if (!is_dir("src")) {
             mkdir("src");
         }
@@ -72,10 +76,6 @@ class GitSimulatorPhp
 
         $branchId = $lastTaskId + 1;
         $branchName = "$typeTask/$prefixId-$branchId";
-
-        self::executeCommand(
-            BranchCommands::BRANCH_PULL->get($this->branchName)
-        );
 
         self::executeCommand(
             BranchCommands::BRANCH_CHECKOUT_CREATE->get($branchName)
