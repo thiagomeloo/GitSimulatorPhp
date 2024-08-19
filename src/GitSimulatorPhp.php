@@ -39,6 +39,10 @@ class GitSimulatorPhp
             echo "Type task: $typeTask\n";
         }
 
+        if (!is_dir("src")) {
+            mkdir("src");
+        }
+
         $files = scandir("src");
 
         usort($files, function ($a, $b) {
@@ -110,11 +114,11 @@ class GitSimulatorPhp
             self::executeCommand(
                 CommitCommands::COMMIT->get("$prefixId-$branchId: Remove $firstFile")
             );
-
-            self::executeCommand(
-                BranchCommands::BRANCH_PUSH->get($branchName)
-            );
         }
+
+        self::executeCommand(
+            BranchCommands::BRANCH_PUSH->get($branchName)
+        );
 
         self::info("Returning to branch $this->branchName");
         self::executeCommand(
