@@ -115,6 +115,9 @@ class GitSimulatorPhp
             self::info("Removing file $firstFile");
             unlink("src/$firstFile");
 
+            self::info("Adding removed file to git.");
+            self::executeCommand(CommitCommands::COMMI_ADD->get($firstFile));
+
             self::executeCommand(
                 CommitCommands::COMMIT->get("$prefixId-$branchId: Remove $firstFile")
             );
